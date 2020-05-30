@@ -56,11 +56,8 @@
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^2.5.1",
     "husky": "^4.2.5",
-<<<<<<< HEAD
     "json-server": "^0.16.1",
     "lint-staged": "^10.2.7",
-=======
->>>>>>> 597c02e89228274667aa1ac7ffdba37576b4145c
     "prettier": "^2.0.4"
   }
 }
