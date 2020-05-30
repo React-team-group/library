@@ -9,7 +9,7 @@ module.exports = {
     ecmaVersion: 9,
     sourceType: 'module',
   },
-  extends: ['eslint:recommended', 'plugin:prettier/recommended', 'react-app'],
+  extends: ['eslint:recommended', 'plugin:prettier/recommended', 'react-app', 'airbnb-base'],
   rules: {
     'no-empty-pattern': 0,
     'no-unused-vars': 0,
