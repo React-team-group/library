@@ -18,6 +18,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "db": "json-server db.json",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -51,6 +52,7 @@
     "eslint-plugin-react": "^7.20.0",
     "eslint-plugin-react-hooks": "^2.5.1",
     "husky": "^4.2.5",
+    "json-server": "^0.16.1",
     "lint-staged": "^10.2.7",
     "prettier": "^2.0.4"
   }
