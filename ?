@@ -1,0 +1,11 @@
+Add package concurerently
+
+Add pacckage concurrently for executive two command
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch http_services
+# Changes to be committed:
+#	modified:   package-lock.json
+#	modified:   package.json
+#

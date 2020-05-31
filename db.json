@@ -8001,15 +8001,5 @@
       "category": "Children"
     }
   ],
-  "categories": [
-    "Adventure",
-    "Romance",
-    "Children",
-    "Education",
-    "Fantasy",
-    "History",
-    "Horror",
-    "Humor"
-  ],
-  "orders": []
+  "categories": ["Adventure", "Romance", "Children", "Education", "Fantasy", "History", "Horror", "Humor"]
 }
