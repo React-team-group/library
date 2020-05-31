@@ -32,7 +32,8 @@
     "eject": "react-scripts eject",
     "lint": "eslint ./",
     "precommit": "npm run lint",
-    "dev": "concurrently \"npm run start\" \"npm run db\""
+    "dev": "concurrently \"npm run start\" \"npm run db\"",
+    "format": "prettier --write \"**/*.+(js|jsx|ts|tsx|json|yml|yaml|css|md|vue)\""
   },
   "husky": {
     "hooks": {

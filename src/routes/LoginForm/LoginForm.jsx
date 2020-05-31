@@ -2,7 +2,15 @@ import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 
+import { useStyleLogin } from './styles';
+
+// ! Роут LoginPage лежит в components,
+// ! а компонент LoginForm который можно ипользовать в роуте и модальном окне лежит в routes.
+// !?
+
 export const LoginForm = ({ auth }) => {
+  const classes = useStyleLogin();
+
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -20,8 +28,10 @@ export const LoginForm = ({ auth }) => {
     },
   });
   return (
-    <form onSubmit={formik.handleSubmit}>
-      <label htmlFor="email">Email Address</label>
+    <form onSubmit={formik.handleSubmit} className={classes.form}>
+      <label htmlFor="email" className={classes.label}>
+        Email Address
+      </label>
       <input
         id="email"
         name="email"
@@ -29,10 +39,13 @@ export const LoginForm = ({ auth }) => {
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
         value={formik.values.email}
+        className={classes.input}
       />
       {formik.touched.email && formik.errors.email ? <div>{formik.errors.email}</div> : null}
 
-      <label htmlFor="password">Password</label>
+      <label htmlFor="password" className={classes.label}>
+        Password
+      </label>
       <input
         id="password"
         name="password"
@@ -40,9 +53,12 @@ export const LoginForm = ({ auth }) => {
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
         value={formik.values.password}
+        className={classes.input}
       />
       {formik.touched.password && formik.errors.password ? <div>{formik.errors.password}</div> : null}
-      <button type="submit">Submit</button>
+      <button type="submit" className={classes.button}>
+        Submit
+      </button>
     </form>
   );
 };
