@@ -1,24 +1,23 @@
 import React from 'react';
+import { Provider } from 'react-redux';
+import { store } from './redux/index';
+import { BooksLayout } from './components/Books/index';
+import { LoginPage } from './components/LoginPage';
+
+import './normalize.scss';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 import './App.scss';
 import { Layout } from './layout';
 
-function App() {
+export const App = () => {
   return (
-    <>
+    <Provider store={store}>
       <CssBaseline />
       <Layout>
-        <div className="App">
-          <div className="App-header">
-            <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-              Learn React
-            </a>
-          </div>
-        </div>
+        <LoginPage />
+        <BooksLayout />
       </Layout>
-    </>
+    </Provider>
   );
-}
-
-export default App;
+};
