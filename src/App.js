@@ -1,16 +1,17 @@
 import React from 'react';
+import { Provider } from 'react-redux';
+import { store } from './redux/index';
+import { BooksLayout } from './components/Books/index';
+import { LoginPage } from './components/LoginPage';
+
+import './normalize.scss';
 import './App.scss';
 
-function App() {
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <LoginPage />
+      <BooksLayout />
+    </Provider>
   );
-}
-
-export default App;
+};

@@ -1,0 +1,16 @@
+.book-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.book-card {
+  margin-top: 50px;
+  width: 350px;
+  height: 315px;
+  border: 1px solid #eeccee;
+}
+
+.book-img {
+  object-fit: cover;
+  width: 100%;
+}
