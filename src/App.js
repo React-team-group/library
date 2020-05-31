@@ -5,13 +5,19 @@ import { BooksLayout } from './components/Books/index';
 import { LoginPage } from './components/LoginPage';
 
 import './normalize.scss';
+import CssBaseline from '@material-ui/core/CssBaseline';
+
 import './App.scss';
+import { Layout } from './layout';
 
 export const App = () => {
   return (
     <Provider store={store}>
-      <LoginPage />
-      <BooksLayout />
+      <CssBaseline />
+      <Layout>
+        <LoginPage />
+        <BooksLayout />
+      </Layout>
     </Provider>
   );
 };
