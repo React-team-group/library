@@ -1,6 +1,4 @@
-import {
-  makeStyles
-} from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
 export const useStyleLoginPage = makeStyles((theme) => ({
   container: {
