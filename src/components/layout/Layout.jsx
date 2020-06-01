@@ -11,7 +11,6 @@ import { HideOnScroll } from './HideOnScroll';
 import { useSelector } from 'react-redux';
 
 import { Main } from './styles';
-import { BooksLayout } from '../Books';
 
 const Layout = (props) => {
   const { isLogged } = useSelector((state) => state.auth);
@@ -28,7 +27,6 @@ const Layout = (props) => {
           <Main>
             <Container>
               <Box my={2}>{children}</Box>
-              <BooksLayout />
             </Container>
           </Main>
           <Footer />
