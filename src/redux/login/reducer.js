@@ -1,7 +1,7 @@
-import { AUTH } from './actionTypes';
+import { AUTH, EXIT } from './actionTypes';
 
 const initialState = {
-  isLogged: false,
+  isLogged: true,
 };
 
 export const reducer = (state = initialState, action) => {
@@ -9,6 +9,10 @@ export const reducer = (state = initialState, action) => {
     case AUTH:
       return {
         isLogged: true,
+      };
+    case EXIT:
+      return {
+        isLogged: false,
       };
     default:
       return state;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -21,6 +21,9 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import { stylesHeader } from './styles';
 
 import { Search } from './Search';
+import { useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { exit } from '../../redux/login/actions';
 
 export const MenuAppBar = React.forwardRef((props, ref) => {
   const classes = stylesHeader();
@@ -39,10 +42,20 @@ export const MenuAppBar = React.forwardRef((props, ref) => {
     setMobileMoreAnchorEl(null);
   };
 
+
+  const dispatch = useDispatch();
+  let history = useHistory();
   const handleMenuClose = () => {
+    dispatch(exit());
+    history.push('/login');
+
     setAnchorEl(null);
-    handleMobileMenuClose();
+   // handleMobileMenuClose();
   };
+
+  const handleToBuyBooks = () => {
+    history.push('/cart');
+  }
 
   const handleMobileMenuOpen = (event) => {
     setMobileMoreAnchorEl(event.currentTarget);
@@ -54,18 +67,20 @@ export const MenuAppBar = React.forwardRef((props, ref) => {
 
   const menuId = 'primary-search-account-menu';
   const renderMenu = (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-      id={menuId}
-      keepMounted
-      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-      open={isMenuOpen}
-      onClose={handleMenuClose}
+     <Menu
+
+
+    //   anchorEl={anchorEl}
+    //   anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+     id={menuId}
+    //   keepMounted
+    //   transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+    //   open={isMenuOpen}
+    //   onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-      <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
+       Logout
+      {/*<MenuItem onClick={handleMenuClose}>Profile</MenuItem>*/}
+      {/*<MenuItem onClick={handleMenuClose}>My account</MenuItem>*/}
     </Menu>
   );
 
@@ -126,23 +141,23 @@ export const MenuAppBar = React.forwardRef((props, ref) => {
 
           <Search />
 
-          <FormGroup>
-            <FormControlLabel
-              control={<Switch checked={auth} onChange={handleChange} aria-label="login switch" />}
-              label={auth ? 'Debug logout' : 'Debug login'}
-            />
-          </FormGroup>
+          {/*<FormGroup>*/}
+          {/*  <FormControlLabel*/}
+          {/*    control={<Switch checked={auth} onChange={handleChange} aria-label="login switch" />}*/}
+          {/*    label={auth ? 'Debug logout' : 'Debug login'}*/}
+          {/*  />*/}
+          {/*</FormGroup>*/}
 
           <div className={classes.grow} />
 
           {auth ? (
             <>
               <div className={classes.sectionDesktop}>
-                <IconButton aria-label={`${4} items in the shopping cart`} color="inherit">
+                <IconButton aria-label={`${4} items in the shopping cart`} color="inherit" onClick={handleToBuyBooks}>
                   <Badge badgeContent={4} color="secondary">
                     <ShoppingCartIcon />
                   </Badge>
-                </IconButton>
+                </IconButton >
 
                 <IconButton aria-label={`${4} items in favorite`} color="inherit">
                   <Badge badgeContent={4} color="secondary">
@@ -155,10 +170,11 @@ export const MenuAppBar = React.forwardRef((props, ref) => {
                   aria-label="account of current user"
                   aria-controls={menuId}
                   aria-haspopup="true"
-                  onClick={handleProfileMenuOpen}
+                  onClick={handleMenuClose}
                   color="inherit"
                 >
-                  <AccountCircle />
+                  Logout
+                  {/*<AccountCircle />*/}
                 </IconButton>
               </div>
               <div className={classes.sectionMobile}>

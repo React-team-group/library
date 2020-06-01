@@ -1,23 +1,23 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { store } from './redux/index';
-import { BooksLayout } from './components/Books/index';
-import { LoginPage } from './components/LoginPage';
+import  {AppRouter } from "./routes/AppRouter";
+
+import  {BrowserRouter} from 'react-router-dom';
 
 import './normalize.scss';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 import './App.scss';
-import { Layout } from './layout';
+import { Layout } from './routes/layout';
 
 export const App = () => {
   return (
     <Provider store={store}>
       <CssBaseline />
-      <Layout>
-        <LoginPage />
-        <BooksLayout />
-      </Layout>
+      <BrowserRouter>
+          <AppRouter />
+      </BrowserRouter>
     </Provider>
   );
 };
