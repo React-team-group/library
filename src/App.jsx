@@ -1,9 +1,9 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { store } from './redux/index';
-import  {AppRouter } from "./routes/AppRouter";
+import { AppRouter } from './routes/AppRouter';
 
-import  {BrowserRouter} from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 import './normalize.scss';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -16,7 +16,7 @@ export const App = () => {
     <Provider store={store}>
       <CssBaseline />
       <BrowserRouter>
-          <AppRouter />
+        <AppRouter />
       </BrowserRouter>
     </Provider>
   );

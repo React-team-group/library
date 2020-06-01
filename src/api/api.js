@@ -6,10 +6,12 @@ const instance = axios.create({
 });
 
 export const HttpService = {
-  getProducts: (page = 1, limit = 10) => {
-    return instance.get(`/products?_page=${page}&_limit=${limit}`).then((res) => res);
+  getProducts: (page = 1, limit = 100) => {
+    return instance.get(`/products?_page=${page}&_limit=${limit}`).then((res) => {
+      console.log(res)
+      return { total: Number(res.headers['x-total-count']), books: res.data };
+    });
   },
-
   getProductId: (id) => {
     return instance.get(`/products/${id}`).then((res) => res);
   },

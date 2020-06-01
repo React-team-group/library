@@ -4,6 +4,7 @@ import { Books as BooksComponent } from './Books';
 
 const mapStateToProps = (state) => ({
   books: state.books.products,
+  total: state.books.total,
 });
 
 const mapDispatchToProps = {
