@@ -1,8 +1,8 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-
 import { useStyleLogin } from './styles';
+import { useHistory } from 'react-router-dom';
 
 // ! Роут LoginPage лежит в components,
 // ! а компонент LoginForm который можно ипользовать в роуте и модальном окне лежит в routes.
@@ -10,6 +10,7 @@ import { useStyleLogin } from './styles';
 
 export const LoginForm = ({ auth }) => {
   const classes = useStyleLogin();
+  let history = useHistory();
 
   const formik = useFormik({
     initialValues: {
@@ -23,8 +24,10 @@ export const LoginForm = ({ auth }) => {
         .min(6, 'Password is too short - should be 8 chars minimum.')
         .matches(/[a-zA-Z]/, 'Password can only contain Latin letters.'),
     }),
+
     onSubmit: (values) => {
       auth();
+      history.push('/books');
     },
   });
   return (
