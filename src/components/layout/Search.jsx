@@ -4,15 +4,21 @@ import SearchIcon from '@material-ui/icons/Search';
 
 import { stylesHeader } from './styles';
 
-const Search = () => {
-  const { search, searchIcon, inputRoot, inputInput } = stylesHeader();
+const Search = ({ search }) => {
+  console.log(search)
+  const { search1, searchIcon, inputRoot, inputInput } = stylesHeader();
+
+  const handeChangeTitle = ({ target }) => {
+    search(target.value);
+  };
 
   return (
-    <div className={search}>
+    <div className={search1}>
       <div className={searchIcon}>
         <SearchIcon />
       </div>
       <InputBase
+        onChange={handeChangeTitle}
         placeholder="Search…"
         classes={{
           root: inputRoot,

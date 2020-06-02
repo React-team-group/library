@@ -5,17 +5,19 @@ import { PaginationBar } from '../../components/paginationBar';
 
 import './Books.scss';
 
-export const Books = ({ books, requestBooks, total, isLogged, bookByID, clearBooks }) => {
+export const Books = ({ books, requestBooks, total, isLogged, searchStr, clearBooks, replaceBooks }) => {
   const [page, setPage] = useState(1);
 
   const history = useHistory();
   const { url } = useRouteMatch();
+  console.log(searchStr);
 
   useEffect(() => {
-    clearBooks();
-  }, []);
+    setPage(1);
+    replaceBooks(searchStr, page);
+  }, [searchStr]);
   useEffect(() => {
-    requestBooks(page);
+    if (page !== 1) requestBooks(searchStr, page);
   }, [requestBooks, page]);
 
   const handlePaginationBar = () => {

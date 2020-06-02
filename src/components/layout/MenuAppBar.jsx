@@ -17,7 +17,7 @@ import { RenderMobileMenu } from '../../components/renderMobileMenu/RenderMobile
 import { stylesHeader } from './styles';
 
 export const MenuAppBar = React.forwardRef((props, ref) => {
-  const { isLogged, auth } = props;
+  const { isLogged, auth, search } = props;
   const classes = stylesHeader();
   // const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -44,7 +44,7 @@ export const MenuAppBar = React.forwardRef((props, ref) => {
           <Typography className={classes.title} variant="h6" noWrap>
             Books
           </Typography>
-          <Search />
+          <Search search={search} />
           {isLogged && (
             <>
               <div className={classes.sectionDesktop}>

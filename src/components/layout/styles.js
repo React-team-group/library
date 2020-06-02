@@ -14,7 +14,7 @@ const stylesHeader = makeStyles((theme) => ({
       display: 'block',
     },
   },
-  search: {
+  search1: {
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
     backgroundColor: fade(theme.palette.common.white, 0.15),
