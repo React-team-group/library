@@ -6,4 +6,3 @@ export const auth = (flag) => (dispatch) => {
     payload: flag,
   });
 };
-

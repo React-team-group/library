@@ -1,8 +1,9 @@
 import React from 'react';
 import { useFormik } from 'formik';
-import * as Yup from 'yup';
-import { useStyleLogin } from './styles';
 import { useHistory } from 'react-router-dom';
+import * as Yup from 'yup';
+
+import { useStyleLogin } from './styles';
 
 // ! Роут LoginPage лежит в components,
 // ! а компонент LoginForm который можно ипользовать в роуте и модальном окне лежит в routes.
@@ -10,7 +11,7 @@ import { useHistory } from 'react-router-dom';
 
 export const LoginForm = ({ auth }) => {
   const classes = useStyleLogin();
-  let history = useHistory();
+  const history = useHistory();
 
   const formik = useFormik({
     initialValues: {

@@ -1,10 +1,10 @@
-import { Layout as LayoutComponents } from './Layout';
 import { connect } from 'react-redux';
 
+import { Layout as LayoutComponents } from './Layout';
 import { auth } from '../../redux/login/actions';
 
 const mapStateToProps = (state) => ({
-  isLog: state.auth.isLogged,
+  isLogged: state.auth.isLogged,
 });
 const mapDispatchToProps = {
   auth,
