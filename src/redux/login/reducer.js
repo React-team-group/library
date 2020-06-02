@@ -1,18 +1,14 @@
-import { AUTH, EXIT } from './actionTypes';
+import { AUTH } from './actionTypes';
 
 const initialState = {
-  isLogged: true,
+  isLogged: false,
 };
 
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
     case AUTH:
       return {
-        isLogged: true,
-      };
-    case EXIT:
-      return {
-        isLogged: false,
+        isLogged: action.payload,
       };
     default:
       return state;

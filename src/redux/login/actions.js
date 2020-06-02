@@ -1,19 +1,9 @@
-import { AUTH, EXIT } from './actionTypes';
+import { AUTH } from './actionTypes';
 
-export const auth = () => async (dispatch) => {
-  const auth = false;
-
+export const auth = (flag) => (dispatch) => {
   dispatch({
     type: AUTH,
-    payload: auth,
+    payload: flag,
   });
 };
 
-export const exit = () => async (dispatch) => {
-  const auth = false;
-
-  dispatch({
-    type: EXIT,
-    payload: auth,
-  });
-};

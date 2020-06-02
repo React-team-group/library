@@ -26,7 +26,7 @@ export const LoginForm = ({ auth }) => {
     }),
 
     onSubmit: (values) => {
-      auth();
+      auth(true);
       history.push('/books');
     },
   });

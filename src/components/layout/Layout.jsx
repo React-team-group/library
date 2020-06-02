@@ -13,13 +13,12 @@ import { useSelector } from 'react-redux';
 import { Main } from './styles';
 
 const Layout = (props) => {
-  const { isLogged } = useSelector((state) => state.auth);
-  const { children, ...restProps } = props;
+  const { children, isLog, ...restProps } = props;
 
   return (
     <>
-      {isLogged ? (
-        <div>
+      {isLog ? (
+        <>
           <HideOnScroll {...restProps}>
             <MenuAppBar />
           </HideOnScroll>
@@ -35,9 +34,9 @@ const Layout = (props) => {
               <KeyboardArrowUpIcon />
             </Fab>
           </ScrollTop>
-        </div>
+        </>
       ) : (
-        <h1>isLoggin need</h1>
+        <h2>you need login now</h2>
       )}
     </>
   );
