@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { requestBooks, bookByID } from '../../redux/books/actions';
+import { requestBooks, bookByID, clearBooks } from '../../redux/books/actions';
 import { Books as BooksComponent } from './Books';
 
 const mapStateToProps = (state) => ({
@@ -11,6 +11,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = {
   requestBooks,
   bookByID,
+  clearBooks,
 };
 
 const BooksLayout = connect(mapStateToProps, mapDispatchToProps)(BooksComponent);

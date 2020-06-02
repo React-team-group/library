@@ -13,12 +13,14 @@ export const BookDetails = ({ book, bookByID }) => {
 
   return (
     <>
-      <button onClick={goBack}>BACK</button>
-      <div className="title">{title}</div>
-      <div className="category">{category}</div>
-      <div className="price">{price}</div>
-      <div className="description">{description}</div>
-      <img src={img} className="img" alt="img " />
+      <section key={id}>
+        <button onClick={goBack}>BACK</button>
+        <div className="title">{title}</div>
+        <div className="category">{category}</div>
+        <div className="price">{price}</div>
+        <div className="description">{description}</div>
+        <img src={img} className="img" alt="img " />
+      </section>
     </>
   );
 };

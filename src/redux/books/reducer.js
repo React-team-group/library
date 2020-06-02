@@ -1,4 +1,4 @@
-import { GET_BOOKS, GET_BOOK_BY_ID } from './actionTypes';
+import { GET_BOOKS, GET_BOOK_BY_ID, CLEAR_BOOKS } from './actionTypes';
 
 const initialState = {
   products: [],
@@ -18,6 +18,11 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         book: { ...action.payload },
+      };
+    case CLEAR_BOOKS:
+      return {
+        ...state,
+        products: [],
       };
     default:
       return state;

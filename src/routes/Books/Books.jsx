@@ -5,11 +5,15 @@ import { PaginationBar } from '../../components/paginationBar';
 
 import './Books.scss';
 
-export const Books = ({ books, requestBooks, total, isLogged, bookByID }) => {
+export const Books = ({ books, requestBooks, total, isLogged, bookByID, clearBooks }) => {
   const [page, setPage] = useState(1);
 
   const history = useHistory();
   const { url } = useRouteMatch();
+
+  useEffect(() => {
+    clearBooks();
+  }, []);
   useEffect(() => {
     requestBooks(page);
   }, [requestBooks, page]);
@@ -17,10 +21,6 @@ export const Books = ({ books, requestBooks, total, isLogged, bookByID }) => {
   const handlePaginationBar = () => {
     setPage(page + 1);
   };
-
-  // const handleToSingleBook = (id) => {
-  //   history.push(`${url}/${id}`);
-  // };
 
   return (
     <>

@@ -1,4 +1,4 @@
-import { GET_BOOKS, GET_BOOK_BY_ID } from './actionTypes';
+import { GET_BOOKS, GET_BOOK_BY_ID, CLEAR_BOOKS } from './actionTypes';
 import { HttpService } from '../../api/api';
 
 export const requestBooks = (page, limit) => async (dispatch) => {
@@ -14,5 +14,11 @@ export const bookByID = (id) => async (dispatch) => {
   dispatch({
     type: GET_BOOK_BY_ID,
     payload: book,
+  });
+};
+
+export const clearBooks = () => async (dispatch) => {
+  dispatch({
+    type: CLEAR_BOOKS,
   });
 };
