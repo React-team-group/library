@@ -1,8 +1,16 @@
-import { GET_BOOKS, GET_BOOK_BY_ID, CLEAR_BOOKS, SEARCH_BOOKS, GET_REPLACE_BOOKS } from './actionTypes';
-import { HttpService } from '../../api/api';
+import {
+  GET_BOOKS,
+  GET_BOOK_BY_ID,
+  CLEAR_BOOKS,
+  SEARCH_BOOKS,
+  GET_REPLACE_BOOKS
+} from './actionTypes';
+import {
+  HttpService
+} from '../../api/api';
 
-export const requestBooks = (page, limit, title_like) => async (dispatch) => {
-  const books = await HttpService.getProducts(page, limit, title_like);
+export const requestBooks = (search, page, limit) => async (dispatch) => {
+  const books = await HttpService.getProducts(search, page, limit);
   dispatch({
     type: GET_BOOKS,
     payload: books,
@@ -31,8 +39,8 @@ export const search = (text) => (dispatch) => {
   });
 };
 
-export const replaceBooks = (page, limit, title_like) => async (dispatch) => {
-  const books = await HttpService.getProducts(page, limit, title_like);
+export const replaceBooks = (search, page, limit) => async (dispatch) => {
+  const books = await HttpService.getProducts(search, page, limit);
   dispatch({
     type: GET_REPLACE_BOOKS,
     payload: books,
