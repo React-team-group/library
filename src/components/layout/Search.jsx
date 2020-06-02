@@ -5,7 +5,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import { stylesHeader } from './styles';
 
 const Search = ({ search }) => {
-  console.log(search)
+  console.log(search);
   const { search1, searchIcon, inputRoot, inputInput } = stylesHeader();
 
   const handeChangeTitle = ({ target }) => {

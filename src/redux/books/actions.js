@@ -1,13 +1,5 @@
-import {
-  GET_BOOKS,
-  GET_BOOK_BY_ID,
-  CLEAR_BOOKS,
-  SEARCH_BOOKS,
-  GET_REPLACE_BOOKS
-} from './actionTypes';
-import {
-  HttpService
-} from '../../api/api';
+import { GET_BOOKS, GET_BOOK_BY_ID, CLEAR_BOOKS, SEARCH_BOOKS, GET_REPLACE_BOOKS } from './actionTypes';
+import { HttpService } from '../../api/api';
 
 export const requestBooks = (search, page, limit) => async (dispatch) => {
   const books = await HttpService.getProducts(search, page, limit);

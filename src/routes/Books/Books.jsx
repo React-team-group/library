@@ -14,10 +14,7 @@ export const Books = ({ books, requestBooks, total, isLogged, searchStr, clearBo
 
   useEffect(() => {
     setPage(1);
-    // replaceBooks(searchStr, page);
     replaceBooks(searchStr);
-    // setPage(() => 1);
-    // replaceBooks(searchStr, page);
   }, [searchStr]);
   useEffect(() => {
     if (page !== 1) requestBooks(searchStr, page);
