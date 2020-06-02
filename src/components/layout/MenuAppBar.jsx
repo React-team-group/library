@@ -1,37 +1,31 @@
-import React, { useCallback } from 'react';
+import React from 'react';
+import { useHistory } from 'react-router-dom';
+
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import InputBase from '@material-ui/core/InputBase'; //? floating styles
 import Badge from '@material-ui/core/Badge';
-import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
 import MenuIcon from '@material-ui/icons/Menu';
-import AccountCircle from '@material-ui/icons/AccountCircle';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import MoreIcon from '@material-ui/icons/MoreVert';
-import Button from '@material-ui/core/Button';
-
 import FavoriteIcon from '@material-ui/icons/Favorite';
+
+import { Search } from './Search';
+import { RenderMobileMenu } from '../../components/renderMobileMenu/RenderMobileMenu';
 
 import { stylesHeader } from './styles';
 
-import { Search } from './Search';
-import { useHistory } from 'react-router-dom';
-import { auth } from '../../redux/login/actions';
-import { RenderMobileMenu } from '../../components/renderMobileMenu/RenderMobileMenu';
-
 export const MenuAppBar = React.forwardRef((props, ref) => {
-  const { isLog, auth } = props;
+  const { isLogged, auth } = props;
   const classes = stylesHeader();
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  // const [anchorEl, setAnchorEl] = React.useState(null);
 
-  let history = useHistory();
+  const history = useHistory();
   const handleLogout = () => {
     auth(false);
     history.push('/login');
-    setAnchorEl(null);
+    // setAnchorEl(null);
   };
   const handleToBuyBooks = () => {
     history.push('/cart');
@@ -39,7 +33,6 @@ export const MenuAppBar = React.forwardRef((props, ref) => {
 
   const menuId = 'primary-search-account-menu';
   const renderMenu = <Menu id={menuId}>Logout</Menu>;
-  const mobileMenuId = 'primary-search-account-menu-mobile';
 
   return (
     <>
@@ -52,7 +45,7 @@ export const MenuAppBar = React.forwardRef((props, ref) => {
             Books
           </Typography>
           <Search />
-          {isLog && (
+          {isLogged && (
             <>
               <div className={classes.sectionDesktop}>
                 <IconButton aria-label={`${4} items in the shopping cart`} color="inherit" onClick={handleToBuyBooks}>
